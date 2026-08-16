@@ -1,0 +1,4 @@
+/* GitHub Pages has no server-side account session. */
+.authbtn {
+  display: none !important;
+}
