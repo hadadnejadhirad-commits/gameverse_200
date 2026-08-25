@@ -67,7 +67,14 @@ export default function Home(){
      <img src="images/4-fighters-last-day-1.webp" width="1565" height="900" alt="رویداد بازی 4 Fighter's Last Day 1 در GAMEVERSE_200"/>
      <div className="event-copy">
       <span>{en?"LIVE SPECIAL EVENT":"رویداد ویژهٔ فعال"}</span>
-      <h2>4 FIGHTER&apos;S<br/>LAST DAY 1</h2>
+      <div className="event-title-row">
+       <h2>4 FIGHTER&apos;S<br/>LAST DAY 1</h2>
+       <div className="event-community">
+        <strong><span aria-hidden="true">★</span>{en?"VOTE FOR US":"به ما رأی دهید"}</strong>
+        <a className="event-comments" href="https://github.com/hadadnejadhirad-commits/gameverse_200/issues/new?title=نظر%20درباره%204%20Fighter%27s%20Last%20Day%201&amp;body=نظر%20من%20درباره%20بازی%3A%0A%0A" target="_blank" rel="noreferrer">{en?"WRITE A COMMENT":"نظرات کاربران"}</a>
+        <small>{en?"A GitHub account is required to post.":"برای نوشتن نظر، ورود به GitHub لازم است."}</small>
+       </div>
+      </div>
       <p>{en?"Enter a world captured by robots and begin the first day of the final resistance. Download the ready-to-play Windows edition, extract it and open the game—Godot is not required. This Forward+ keyboard edition does not run on phones.":"وارد دنیایی شو که ربات‌ها آن را تسخیر کرده‌اند و روز اول آخرین مقاومت را آغاز کن. نسخهٔ آمادهٔ ویندوز را دانلود و از حالت فشرده خارج کن، سپس فایل اجرایی بازی را باز کن؛ نیازی به نصب Godot نیست. این نسخه با رندر Forward+ و کنترل کیبورد ساخته شده و روی گوشی اجرا نمی‌شود."}</p>
       <div className="event-meta"><b>FORWARD+</b><b>WINDOWS 10/11</b><b>{en?"PC ONLY · NOT MOBILE":"فقط کامپیوتر · غیرقابل اجرا روی گوشی"}</b><b>{en?"NO GODOT REQUIRED":"بدون نیاز به GODOT"}</b></div>
       <div className="event-actions">
