@@ -1,0 +1,20 @@
+{
+  "name": "GAMEVERSE_200",
+  "short_name": "GAMEVERSE_200",
+  "description": "سایت بازی با فهرست ۲۰۰ بازی برتر، رویدادهای اختصاصی و دانلود بازی ویندوز.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/gameverse_200/",
+  "scope": "/gameverse_200/",
+  "display": "standalone",
+  "background_color": "#070810",
+  "theme_color": "#070810",
+  "icons": [
+    {
+      "src": "/gameverse_200/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
