@@ -2,3 +2,22 @@
 .authbtn {
   display: none !important;
 }
+
+/* Crawlable, no-JavaScript introduction; React replaces it after startup. */
+.seo-fallback {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 14px;
+  padding: 40px;
+  background: #070810;
+  color: #f7f7fc;
+  text-align: center;
+}
+.seo-fallback h1,
+.seo-fallback h2,
+.seo-fallback p { margin: 0; }
+.seo-fallback h1 { font-size: clamp(48px, 9vw, 100px); }
+.seo-fallback h2 { margin-top: 18px; font-size: clamp(24px, 4vw, 38px); }
+.seo-fallback p { max-width: 760px; color: #b6b9c7; line-height: 2; }
+.seo-fallback a { justify-self: center; margin-top: 8px; padding: 14px 20px; border-radius: 10px; background: #8258ed; color: white; font-weight: 800; }
