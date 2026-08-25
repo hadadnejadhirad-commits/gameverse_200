@@ -1,0 +1,61 @@
+name: Build Windows game
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export-windows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout website repository
+        uses: actions/checkout@v4
+
+      - name: Download game project and licensed music
+        env:
+          RELEASE_BASE: https://github.com/hadadnejadhirad-commits/gameverse_200/releases/download/4-fighters-last-day-1
+        run: |
+          mkdir -p game-source
+          curl --fail --location --retry 5 "$RELEASE_BASE/4-fighters-last-day-1-project.zip" --output project.zip
+          curl --fail --location --retry 5 "$RELEASE_BASE/4-fighters-last-day-1-music-pack.zip" --output music.zip
+          unzip -q project.zip -d game-source
+          PROJECT_DIR="$(find game-source -name project.godot -printf '%h\n' | head -n 1)"
+          test -n "$PROJECT_DIR"
+          unzip -q music.zip -d "$PROJECT_DIR"
+          cp .github/windows-export-presets.cfg "$PROJECT_DIR/export_presets.cfg"
+          printf 'PROJECT_DIR=%s\n' "$PROJECT_DIR" >> "$GITHUB_ENV"
+
+      - name: Install Godot 4.6.3 and export templates
+        run: |
+          curl --fail --location --retry 5 "https://downloads.godotengine.org/?version=4.6.3&flavor=stable&platform=linux.64&slug=linux.x86_64.zip" --output godot.zip
+          curl --fail --location --retry 5 "https://downloads.godotengine.org/?version=4.6.3&flavor=stable&platform=templates&slug=export_templates.tpz" --output templates.tpz
+          mkdir -p godot-bin template-unpack "$HOME/.local/share/godot/export_templates/4.6.3.stable"
+          unzip -q godot.zip -d godot-bin
+          unzip -q templates.tpz -d template-unpack
+          cp -R template-unpack/templates/. "$HOME/.local/share/godot/export_templates/4.6.3.stable/"
+          chmod +x godot-bin/Godot_v4.6.3-stable_linux.x86_64
+          printf 'GODOT=%s/godot-bin/Godot_v4.6.3-stable_linux.x86_64\n' "$GITHUB_WORKSPACE" >> "$GITHUB_ENV"
+
+      - name: Build standalone Windows game
+        run: |
+          mkdir -p build/windows
+          "$GODOT" --headless --path "$PROJECT_DIR" --editor --import --quit
+          "$GODOT" --headless --path "$PROJECT_DIR" --export-release "Windows Desktop" "$GITHUB_WORKSPACE/build/windows/4-Fighters-Last-Day-1.exe"
+          test -s build/windows/4-Fighters-Last-Day-1.exe
+          cd build/windows
+          zip -9 ../4-fighters-last-day-1-windows.zip 4-Fighters-Last-Day-1.exe
+
+      - name: Upload build to the public release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload 4-fighters-last-day-1 build/4-fighters-last-day-1-windows.zip --clobber
+
+      - name: Keep a workflow copy
+        uses: actions/upload-artifact@v4
+        with:
+          name: 4-fighters-last-day-1-windows
+          path: build/4-fighters-last-day-1-windows.zip
+
