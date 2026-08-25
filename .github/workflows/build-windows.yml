@@ -21,7 +21,9 @@ jobs:
           mkdir -p game-source
           curl --fail --location --retry 5 "$RELEASE_BASE/4-fighters-last-day-1-project.zip" --output project.zip
           curl --fail --location --retry 5 "$RELEASE_BASE/4-fighters-last-day-1-music-pack.zip" --output music.zip
-          unzip -q project.zip -d game-source
+          # Some Windows-created ZIPs report a harmless warning for Persian
+          # filenames on Linux. Exit code 1 means the files were still extracted.
+          unzip -q project.zip -d game-source || test $? -eq 1
           PROJECT_DIR="$(find game-source -name project.godot -printf '%h\n' | head -n 1)"
           test -n "$PROJECT_DIR"
           unzip -q music.zip -d "$PROJECT_DIR"
@@ -58,4 +60,3 @@ jobs:
         with:
           name: 4-fighters-last-day-1-windows
           path: build/4-fighters-last-day-1-windows.zip
-
