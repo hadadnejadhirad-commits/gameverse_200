@@ -188,14 +188,18 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
+      if (phase !== "playing") return;
       keysRef.current[e.key.toLowerCase()] = true;
-      if (["arrowup", "arrowdown", "arrowleft", "arrowright", " "].includes(e.key.toLowerCase())) e.preventDefault();
+      if (["arrowup", "arrowdown", "arrowleft", "arrowright", " "].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
     };
     const up = (e: KeyboardEvent) => (keysRef.current[e.key.toLowerCase()] = false);
     addEventListener("keydown", down);
     addEventListener("keyup", up);
     return () => { removeEventListener("keydown", down); removeEventListener("keyup", up); };
-  }, []);
+  }, [phase]);
 
   useEffect(() => {
     if (phase !== "film") return;
@@ -485,7 +489,7 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
 
   return <div className="haunted realistic-game" ref={shellRef}>
     <div className="gamebar"><div className="leader"><span>{t.leader}</span>{best?<b>{best.name} — {best.time} {t.seconds}</b>:<b>{t.noRecord}</b>}</div><div className="mission"><span>{t.keys} <b>{found}/3</b></span><span>{t.time} <b>{elapsed}</b></span><span>{t.floor} <b>{floor === 0 ? t.ground : t.basement}</b></span></div><div className="game-actions"><button type="button" onClick={toggleMusic}>{soundOn?t.musicOn:t.musicOff}</button><button type="button" onClick={toggleFull}>{expanded ? t.shrink : t.fullscreen}</button></div></div>
-    <div className="gameview real-view"><div className="three-mount" ref={mountRef} /><audio ref={soundtrackRef} className="native-audio" src="/audio/basement-ambient-v2.mp3" controls loop preload="auto" onPlay={()=>setSoundOn(true)} onPause={()=>setSoundOn(false)} aria-label={lang==="fa"?"پخش موسیقی بازی":"Game soundtrack"}/>
+    <div className="gameview real-view"><div className="three-mount" ref={mountRef} /><audio ref={soundtrackRef} className="native-audio" src="/audio/basement-ambient-v2.mp3" controls loop preload="metadata" onPlay={()=>setSoundOn(true)} onPause={()=>setSoundOn(false)} aria-label={lang==="fa"?"پخش موسیقی بازی":"Game soundtrack"}/>
       {phase === "film" && <div className={`story-film real-film scene-${filmStep}`}><div className="film-noise"/><div className="film-copy" key={filmStep}><small>GAMEVERSE_200 // BASEMENT PROTOCOL</small><h3>{sceneCopy[0]}</h3><p>{sceneCopy[1]}</p>{!ready&&!gameError&&<em className="engine-status">{t.loading}</em>}</div><div className="film-progress"><i style={{width:`${((filmStep+1)/3)*100}%`}}/></div><button type="button" onClick={requestStart}>{t.skip}</button><button type="button" className="film-sound" aria-pressed={soundOn} onClick={toggleMusic}>{soundOn?"🔊":"🔇"} {soundOn?t.musicOn:t.soundHint}</button></div>}
       {phase !== "playing" && phase !== "film" && <div className="startlayer real-start"><span className="new-ribbon">{t.newGame}</span><div className="real-soldier" aria-hidden="true"><i/><b/><span/></div><small>REAL-TIME THREE.JS MISSION</small><h3>{phase === "won" ? t.won : phase === "lost" ? t.lost : t.title}</h3><p>{gameError?t.error:phase === "intro" ? t.intro : t.mission}</p><button type="button" disabled={gameError} onClick={phase === "intro" ? beginFilm : requestStart}>{phase === "intro" ? t.watch : t.retry}</button>{!ready&&!gameError&&<i className="engine-status">{t.loading}</i>}<em>{t.controls}</em></div>}
       {phase === "playing" && <><div className="gamenote">{note}</div><div className="real-hud"><span>◈ {playerName}</span><b>{floor === 0 ? t.ground : t.basement}</b></div></>}
