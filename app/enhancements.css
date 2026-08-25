@@ -6,30 +6,30 @@
 }
 .grid .poster > i { display: none; }
 .grid .poster > strong { position: absolute; right: 12px; bottom: 34px; z-index: 3; font-size: 23px; opacity: .2; }
-.grid .card:nth-child(24n + 1) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 0 0 !important; }
-.grid .card:nth-child(24n + 2) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 33.333% 0 !important; }
-.grid .card:nth-child(24n + 3) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 66.667% 0 !important; }
-.grid .card:nth-child(24n + 4) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 100% 0 !important; }
-.grid .card:nth-child(24n + 5) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 0 100% !important; }
-.grid .card:nth-child(24n + 6) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 33.333% 100% !important; }
-.grid .card:nth-child(24n + 7) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 66.667% 100% !important; }
-.grid .card:nth-child(24n + 8) .poster { background-image: url("/images/game-covers-action.png") !important; background-position: 100% 100% !important; }
-.grid .card:nth-child(24n + 9) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 0 0 !important; }
-.grid .card:nth-child(24n + 10) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 33.333% 0 !important; }
-.grid .card:nth-child(24n + 11) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 66.667% 0 !important; }
-.grid .card:nth-child(24n + 12) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 100% 0 !important; }
-.grid .card:nth-child(24n + 13) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 0 100% !important; }
-.grid .card:nth-child(24n + 14) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 33.333% 100% !important; }
-.grid .card:nth-child(24n + 15) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 66.667% 100% !important; }
-.grid .card:nth-child(24n + 16) .poster { background-image: url("/images/game-covers-worlds.png") !important; background-position: 100% 100% !important; }
-.grid .card:nth-child(24n + 17) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 0 0 !important; }
-.grid .card:nth-child(24n + 18) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 33.333% 0 !important; }
-.grid .card:nth-child(24n + 19) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 66.667% 0 !important; }
-.grid .card:nth-child(24n + 20) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 100% 0 !important; }
-.grid .card:nth-child(24n + 21) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 0 100% !important; }
-.grid .card:nth-child(24n + 22) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 33.333% 100% !important; }
-.grid .card:nth-child(24n + 23) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 66.667% 100% !important; }
-.grid .card:nth-child(24n + 24) .poster { background-image: url("/images/game-covers-indie.png") !important; background-position: 100% 100% !important; }
+.grid .card:nth-child(24n + 1) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 0 0 !important; }
+.grid .card:nth-child(24n + 2) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 33.333% 0 !important; }
+.grid .card:nth-child(24n + 3) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 66.667% 0 !important; }
+.grid .card:nth-child(24n + 4) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 100% 0 !important; }
+.grid .card:nth-child(24n + 5) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 0 100% !important; }
+.grid .card:nth-child(24n + 6) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 33.333% 100% !important; }
+.grid .card:nth-child(24n + 7) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 66.667% 100% !important; }
+.grid .card:nth-child(24n + 8) .poster { background-image: url("/images/game-covers-action.webp") !important; background-position: 100% 100% !important; }
+.grid .card:nth-child(24n + 9) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 0 0 !important; }
+.grid .card:nth-child(24n + 10) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 33.333% 0 !important; }
+.grid .card:nth-child(24n + 11) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 66.667% 0 !important; }
+.grid .card:nth-child(24n + 12) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 100% 0 !important; }
+.grid .card:nth-child(24n + 13) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 0 100% !important; }
+.grid .card:nth-child(24n + 14) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 33.333% 100% !important; }
+.grid .card:nth-child(24n + 15) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 66.667% 100% !important; }
+.grid .card:nth-child(24n + 16) .poster { background-image: url("/images/game-covers-worlds.webp") !important; background-position: 100% 100% !important; }
+.grid .card:nth-child(24n + 17) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 0 0 !important; }
+.grid .card:nth-child(24n + 18) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 33.333% 0 !important; }
+.grid .card:nth-child(24n + 19) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 66.667% 0 !important; }
+.grid .card:nth-child(24n + 20) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 100% 0 !important; }
+.grid .card:nth-child(24n + 21) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 0 100% !important; }
+.grid .card:nth-child(24n + 22) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 33.333% 100% !important; }
+.grid .card:nth-child(24n + 23) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 66.667% 100% !important; }
+.grid .card:nth-child(24n + 24) .poster { background-image: url("/images/game-covers-indie.webp") !important; background-position: 100% 100% !important; }
 .cardbody > p { height: 92px !important; line-height: 1.75 !important; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
 
 /* Fifth, fully monochrome theme */
@@ -44,9 +44,9 @@
 .story-film { position: absolute; inset: 0; z-index: 12; overflow: hidden; display: flex; align-items: flex-end; padding: 70px clamp(24px, 7vw, 90px); background: #020306; direction: rtl; }
 .story-film:before { content: ""; position: absolute; inset: -8%; background-repeat: no-repeat; background-size: 400% 200%; animation: film-pan 8.4s linear both; filter: brightness(.56) saturate(.75); }
 .story-film:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.22) 65%, rgba(0,0,0,.6)), linear-gradient(transparent 55%, #020306); }
-.story-film.scene-0:before { background-image: url("/images/game-covers-action.png"); background-position: 0 0; }
-.story-film.scene-1:before { background-image: url("/images/game-covers-indie.png"); background-position: 33.333% 0; }
-.story-film.scene-2:before { background-image: url("/images/game-covers-worlds.png"); background-position: 66.667% 100%; }
+.story-film.scene-0:before { background-image: url("/images/game-covers-action.webp"); background-position: 0 0; }
+.story-film.scene-1:before { background-image: url("/images/game-covers-indie.webp"); background-position: 33.333% 0; }
+.story-film.scene-2:before { background-image: url("/images/game-covers-worlds.webp"); background-position: 66.667% 100%; }
 .film-noise { position: absolute; inset: 0; z-index: 2; opacity: .18; pointer-events: none; background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.08) 4px); }
 .film-copy { position: relative; z-index: 4; width: min(650px, 82%); animation: film-copy-in .65s ease both; }
 .film-copy small { color: #ff657f; letter-spacing: 3px; font: 10px Impact, sans-serif; }
@@ -80,6 +80,21 @@
 .poster > strong { display:none; }
 
 /* Periodically changeable featured shelf */
+.event-section { padding:95px 0; border-block:1px solid var(--line); background:radial-gradient(circle at 20% 40%,rgba(255,78,112,.16),transparent 34%),#080910; }
+.event-card { min-height:520px; display:grid; grid-template-columns:1.08fr .92fr; overflow:hidden; border:1px solid rgba(255,255,255,.2); border-radius:24px; background:#0e1018; box-shadow:0 35px 90px rgba(0,0,0,.38); }
+.event-card>img { width:100%; height:100%; min-height:520px; object-fit:cover; filter:saturate(.88) contrast(1.08); }
+.event-copy { padding:clamp(35px,5vw,72px); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.event-copy>span { color:#ff657f; font-size:10px; font-weight:900; letter-spacing:2px; }
+.event-copy h2 { margin:18px 0 22px; font:clamp(46px,6vw,78px)/.9 Impact,"Arial Black",sans-serif; letter-spacing:-2px; direction:ltr; text-align:left; }
+.event-copy p { color:#b3b6c2; max-width:550px; line-height:2; font-size:13px; }
+.event-meta { display:flex; flex-wrap:wrap; gap:7px; margin:20px 0 28px; }
+.event-meta b { padding:7px 10px; border:1px solid var(--line); border-radius:30px; color:#9296a5; font-size:8px; direction:ltr; }
+.event-downloads { display:flex; flex-wrap:wrap; gap:9px; }
+.event-downloads>a { min-width:190px; padding:15px 18px; border-radius:11px; background:linear-gradient(135deg,#ff4e70,#8b2440); color:#fff; font-size:10px; font-weight:900; text-align:center; box-shadow:0 14px 35px rgba(255,78,112,.22); }
+.event-downloads>a:last-child { background:transparent; border:1px solid #ff657f; color:#ff9aad; }
+.theme-light .event-section { background:radial-gradient(circle at 20% 40%,rgba(204,46,105,.1),transparent 34%),#f4f6f9; }
+.theme-light .event-card { background:#fff; }
+.theme-light .event-copy p { color:#626977; }
 .web-games { padding:95px 0 35px; }
 .web-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .web-game { position:relative; min-height:210px; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--panel); color:#fff; }
@@ -135,14 +150,16 @@
 .real-hud { position:absolute; z-index:5; left:14px; bottom:15px; display:flex; flex-direction:column; gap:4px; padding:9px 12px; border:1px solid rgba(120,230,255,.4); border-radius:8px; background:rgba(2,6,9,.62); color:#dff9ff; font-size:10px; }
 .real-hud b { color:#6ee8ff; }
 .elevator-touch { color:#68edc0!important; border-color:#68edc0!important; font-weight:900!important; }
-.real-film:before { background-image:url("/images/film-soldier.png")!important; background-size:cover!important; background-position:center!important; }
-.real-film.scene-1:before { background-image:url("/images/film-elevator.png")!important; background-position:center!important; }
-.real-film.scene-2:before { background-image:url("/images/film-basement.png")!important; background-position:center!important; }
+.real-film:before { background-image:url("/images/film-soldier.webp")!important; background-size:cover!important; background-position:center!important; }
+.real-film.scene-1:before { background-image:url("/images/film-elevator.webp")!important; background-position:center!important; }
+.real-film.scene-2:before { background-image:url("/images/film-basement.webp")!important; background-position:center!important; }
 .story-film > .film-sound { left:auto; right:24px; color:#8cf0ff; border-color:rgba(140,240,255,.48); }
 .engine-status { display:block; margin-top:10px; color:#70e9ff; font-size:10px; font-style:normal; }
 .real-start button:disabled { opacity:.45; cursor:not-allowed; }
 
 @media (max-width:900px) {
+  .event-card { grid-template-columns:1fr; }
+  .event-card>img { min-height:320px; max-height:420px; }
   .web-grid { grid-template-columns:repeat(2,1fr); }
   .authbtn { display:none; }
 }
