@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hadadnejadhirad-commits.github.io/gameverse_200/sitemap.xml
+
