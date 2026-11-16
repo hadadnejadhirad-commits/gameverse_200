@@ -241,9 +241,9 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
     scene.background = new THREE.Color(0x05070a);
     scene.fog = new THREE.FogExp2(0x05070a, 0.035);
     const camera = new THREE.PerspectiveCamera(72, 1, 0.08, 90);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.7));
-    renderer.shadowMap.enabled = true;
+    const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.25));
+    renderer.shadowMap.enabled = false;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -255,7 +255,7 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
     const flashlight = new THREE.SpotLight(0xf2f0d8, 28, 22, Math.PI / 7, 0.48, 1.35);
     flashlight.position.set(0.18, -0.12, -0.1);
     flashlight.target.position.set(0, -0.08, -8);
-    flashlight.castShadow = true;
+    flashlight.castShadow = false;
     camera.add(flashlight, flashlight.target);
     scene.add(camera);
 
@@ -279,6 +279,7 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
     let currentFloor: 0 | 1 = 0;
     let lastElevator = 0;
     let startedAt = 0;
+    let lastHudSecond = -1;
     let yaw = Math.PI;
     const player = new THREE.Vector3(0, 1.62, 11);
 
@@ -300,7 +301,7 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
     const lamp = (x: number, z: number, level: 0 | 1, color = 0xc9dcff) => {
       const y = level === 0 ? 2.75 : -4.25;
       box(x, y, z, 1.3, .08, .18, new THREE.MeshBasicMaterial({ color }));
-      const light = new THREE.PointLight(color, 4.2, 8, 2); light.position.set(x, y - .15, z); light.castShadow = true; root.add(light);
+      const light = new THREE.PointLight(color, 4.2, 8, 2); light.position.set(x, y - .15, z); light.castShadow = false; root.add(light);
     };
     const propCrate = (x: number, z: number, level: 0 | 1) => {
       const y = level === 0 ? .45 : -6.55;
@@ -391,7 +392,7 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
     const canMove = (x: number, z: number) => Math.abs(x) < 13.35 && Math.abs(z) < 13.35 && !colliders.some((b) => b.level === currentFloor && x > b.minX && x < b.maxX && z > b.minZ && z < b.maxZ);
     const start = () => {
       buildWorld(); collected = 0; currentFloor = 0; setFound(0); setFloor(0); setNote(t.mission);
-      player.set(0, 1.62, 11); yaw = Math.PI; startedAt = performance.now(); setElapsed(0); running = true; setPhase("playing");
+      player.set(0, 1.62, 11); yaw = Math.PI; startedAt = performance.now(); lastHudSecond = -1; setElapsed(0); running = true; setPhase("playing");
     };
     gameRef.current = { start };
     setReady(true);
@@ -459,7 +460,8 @@ export default function ShadowHouseReal({ lang, playerName = "Raven-7" }: { lang
             setPhase("won");
           }
         }
-        setElapsed(Math.floor((performance.now() - startedAt) / 1000));
+        const hudSecond = Math.floor((performance.now() - startedAt) / 1000);
+        if (hudSecond !== lastHudSecond) { lastHudSecond = hudSecond; setElapsed(hudSecond); }
       }
       renderer.render(scene, camera);
     };
