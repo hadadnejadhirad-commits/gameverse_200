@@ -201,3 +201,28 @@
   .game-actions button { padding:7px 8px; font-size:8px; }
   .story-film > .film-sound { top:70px; right:12px; }
 }
+
+
+/* HIREX UNIVERSE identity and original opening sequence */
+.brand { gap:10px; }
+.brand>span { display:grid; place-items:center; width:34px; height:34px; border:1px solid rgba(151,125,255,.75); border-radius:11px; color:#fff; background:linear-gradient(145deg,#9a78ff,#33245f); box-shadow:0 0 24px rgba(130,88,237,.35); font-weight:950; }
+.brand>b { letter-spacing:1.5px; }
+.hero { isolation:isolate; }
+.hero:before { content:""; position:absolute; z-index:-1; inset:0; background:url("/images/hirex-universe-hero.svg") center/cover no-repeat; opacity:.2; pointer-events:none; mask-image:linear-gradient(90deg,transparent,#000 25%,#000 85%,transparent); }
+.hirex-intro { position:fixed; inset:0; z-index:5000; display:grid; place-items:center; overflow:hidden; background:#05040d; color:#fff; animation:hirex-intro-out .7s ease 4.5s forwards; }
+.hirex-intro>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.78; animation:hirex-zoom 5.2s ease-out both; }
+.hirex-intro:after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 48%,rgba(20,12,52,.08),rgba(2,3,10,.72) 75%),linear-gradient(0deg,rgba(2,3,9,.8),transparent 45%,rgba(2,3,9,.35)); }
+.hirex-intro-copy { position:relative; z-index:2; text-align:center; padding:24px; animation:hirex-copy-in 1s ease both; }
+.hirex-intro-copy>span { color:#bba9ff; font-size:10px; letter-spacing:6px; font-weight:900; }
+.hirex-intro-copy h1 { margin:18px 0 8px; font:clamp(42px,8vw,100px)/.95 Impact,"Arial Black",sans-serif; letter-spacing:3px; text-shadow:0 8px 40px #000; }
+.hirex-intro-copy h1 b { color:#a98cff; }
+.hirex-intro-copy p { margin:16px 0 28px; color:#d9d2f5; font-size:clamp(10px,1.5vw,15px); letter-spacing:4px; }
+.hirex-intro-copy button { border:1px solid rgba(205,190,255,.7); border-radius:999px; padding:13px 24px; color:#fff; background:linear-gradient(110deg,#7654db,#35245f); box-shadow:0 10px 35px rgba(103,73,210,.35); cursor:pointer; font-weight:900; }
+.hirex-intro-copy button i { margin-inline-start:12px; font-style:normal; }
+.hirex-skip { position:absolute; z-index:3; top:24px; right:24px; border:1px solid rgba(255,255,255,.25); border-radius:9px; padding:9px 13px; color:#eee; background:rgba(4,5,12,.5); cursor:pointer; font-size:10px; }
+.hirex-intro-line { position:absolute; z-index:3; bottom:0; left:0; height:3px; width:100%; background:linear-gradient(90deg,#a98cff,#62e8ff); transform-origin:left; animation:hirex-progress 5.2s linear both; }
+@keyframes hirex-zoom { from { transform:scale(1.04); } to { transform:scale(1.16); } }
+@keyframes hirex-copy-in { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+@keyframes hirex-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@keyframes hirex-intro-out { 0%,86% { opacity:1; visibility:visible; } 100% { opacity:0; visibility:hidden; pointer-events:none; } }
+@media (prefers-reduced-motion:reduce) { .hirex-intro,.hirex-intro>img,.hirex-intro-copy,.hirex-intro-line { animation:none!important; } }
