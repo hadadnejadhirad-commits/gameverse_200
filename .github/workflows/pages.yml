@@ -1,4 +1,4 @@
-name: Deploy GAMEVERSE_200 to GitHub Pages
+name: Deploy HIREX UNIVERSE to GitHub Pages
 
 on:
   push:
