@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080714">
+  <title>ورود و پروفایل | HIREX UNIVERSE</title>
+  <meta name="description" content="ساخت پروفایل بازیکن در HIREX UNIVERSE.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./site.webmanifest">
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#33226b 0,transparent 50%),#070711;color:#f7f5ff;font-family:Inter,Segoe UI,Tahoma,sans-serif;display:grid;place-items:center;padding:24px}
+    .shell{width:min(470px,100%);border:1px solid #ffffff24;border-radius:24px;background:linear-gradient(150deg,#16142b,#0c0d19);box-shadow:0 35px 100px #0009;padding:clamp(24px,5vw,42px);position:relative;overflow:hidden}
+    .shell:before{content:"";position:absolute;inset:-80px -60px auto;height:190px;background:radial-gradient(ellipse,#8d6fff44,transparent 65%);pointer-events:none}
+    .brand{position:relative;display:flex;align-items:center;gap:10px;text-decoration:none;color:white;font-weight:900;letter-spacing:1.5px;font-size:13px}
+    .mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#a98cff,#39246d);font-size:20px}
+    h1{position:relative;margin:34px 0 8px;font-size:30px;letter-spacing:-1px} .sub{position:relative;color:#b8b4ca;line-height:1.9;font-size:13px;margin:0 0 25px}
+    label{display:block;font-size:12px;color:#ded9f1;font-weight:800;margin:0 0 9px}
+    input{width:100%;border:1px solid #ffffff26;background:#070914;color:white;border-radius:11px;padding:14px 13px;font:inherit;outline:none}
+    input:focus{border-color:#a98cff;box-shadow:0 0 0 3px #a98cff25}
+    .primary{width:100%;margin-top:15px;padding:14px;border:0;border-radius:11px;background:linear-gradient(105deg,#9875ff,#5939b4);color:#fff;font-weight:900;cursor:pointer}
+    .note{margin:18px 0 0;padding:13px;border:1px solid #ffd36b4a;border-radius:10px;background:#ffd36b0d;color:#d8cda8;font-size:11px;line-height:1.9}
+    .profile{margin-top:18px;padding:15px;border-radius:12px;background:#ffffff0a;border:1px solid #ffffff1b;display:none}.profile strong{display:block;font-size:17px}.profile small{display:block;margin-top:6px;color:#aaa5bd;line-height:1.7}
+    .logout{margin-top:12px;border:1px solid #ffffff35;border-radius:9px;background:transparent;color:#e8e2fa;padding:9px 13px;cursor:pointer}
+    .back{display:inline-block;margin-top:23px;color:#bcaaff;font-size:12px;text-decoration:none}
+    .slogan{margin-top:24px;color:#77718e;font-size:9px;letter-spacing:2px;direction:ltr;text-align:center}
+    #status{min-height:21px;margin:11px 0 0;color:#b7f4d0;font-size:11px;line-height:1.7}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <a class="brand" href="./"><span class="mark">H</span><span>HIREX UNIVERSE</span></a>
+    <h1>ورود به جهان بازی‌ها</h1>
+    <p class="sub">برای ثبت نام نمایشی بازیکن و نگه‌داشتن نامت در همین مرورگر، یک نام مستعار انتخاب کن.</p>
+    <form id="profile-form">
+      <label for="player-name">نام بازیکن</label>
+      <input id="player-name" name="player-name" type="text" maxlength="18" minlength="2" autocomplete="nickname" required placeholder="مثلاً Raven-7">
+      <button class="primary" type="submit">ساخت پروفایل بازیکن</button>
+    </form>
+    <div id="profile" class="profile">
+      <strong id="profile-name"></strong>
+      <small>پروفایل مهمان روی همین مرورگر ذخیره شده است.</small>
+      <button id="logout" class="logout" type="button">خروج از پروفایل</button>
+    </div>
+    <p id="status" role="status"></p>
+    <div class="note"><b>نکته درباره حساب کاربری:</b> این نسخه روی GitHub Pages میزبانی می‌شود و فعلاً ورود با ایمیل/رمزعبور و همگام‌سازی حساب در سرور فعال نیست. این فرم فقط پروفایل محلی می‌سازد؛ رمز عبور وارد نکن.</div>
+    <a class="back" href="./">← بازگشت به HIREX UNIVERSE</a>
+    <div class="slogan">ONE UNIVERSE. INFINITE ADVENTURES.</div>
+  </main>
+<script>
+(() => {
+  const key = "hirex-profile";
+  const form = document.getElementById("profile-form");
+  const input = document.getElementById("player-name");
+  const profile = document.getElementById("profile");
+  const profileName = document.getElementById("profile-name");
+  const status = document.getElementById("status");
+  const showProfile = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(key) || "null");
+      if (saved && typeof saved.displayName === "string") {
+        profileName.textContent = saved.displayName;
+        input.value = saved.displayName;
+        profile.style.display = "block";
+      } else profile.style.display = "none";
+    } catch { localStorage.removeItem(key); }
+  };
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const displayName = input.value.trim().replace(/[<>]/g, "").slice(0,18);
+    if (displayName.length < 2) { status.textContent = "نام باید حداقل ۲ نویسه باشد."; return; }
+    localStorage.setItem(key, JSON.stringify({ displayName, kind: "guest", createdAt: new Date().toISOString() }));
+    status.textContent = "پروفایل محلی ساخته شد. حالا می‌توانی به سایت برگردی.";
+    showProfile();
+  });
+  document.getElementById("logout").addEventListener("click", () => {
+    localStorage.removeItem(key);
+    input.value = "";
+    status.textContent = "از پروفایل این مرورگر خارج شدی.";
+    showProfile();
+  });
+  showProfile();
+})();
+</script>
+</body>
+</html>

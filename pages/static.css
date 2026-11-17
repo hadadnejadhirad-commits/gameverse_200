@@ -1,7 +1,18 @@
-/* GitHub Pages has no server-side account session. */
+/* Visible profile access on the static GitHub Pages edition. */
 .authbtn {
-  display: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(165,140,255,.5);
+  border-radius: 9px;
+  color: #d6caff;
+  background: rgba(110,80,205,.12);
+  white-space: nowrap;
 }
+.authbtn:hover { background: rgba(110,80,205,.24); }
+
 
 /* Crawlable, no-JavaScript introduction; React replaces it after startup. */
 .seo-fallback {

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#30205f"/><stop offset=".48" stop-color="#10132d"/><stop offset="1" stop-color="#03040b"/></radialGradient>
+ <radialGradient id="planet"><stop stop-color="#a88bff"/><stop offset=".38" stop-color="#5543a1"/><stop offset="1" stop-color="#11152e"/></radialGradient>
+ <linearGradient id="ring"><stop stop-color="#70e9ff" stop-opacity="0"/><stop offset=".5" stop-color="#9f8aff"/><stop offset="1" stop-color="#70e9ff" stop-opacity="0"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+ <pattern id="stars" width="140" height="110" patternUnits="userSpaceOnUse"><circle cx="12" cy="17" r="1.5" fill="#fff" opacity=".8"/><circle cx="78" cy="48" r="1" fill="#b8aaff"/><circle cx="118" cy="88" r="1.4" fill="#6eeaff"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#stars)"/>
+<circle cx="1120" cy="420" r="260" fill="#7861d8" opacity=".18" filter="url(#glow)"/>
+<circle cx="1120" cy="420" r="205" fill="url(#planet)"/>
+<path d="M850 475C930 230 1310 200 1450 420C1270 320 1040 350 850 475Z" fill="none" stroke="url(#ring)" stroke-width="20" opacity=".8"/>
+<path d="M850 475C930 230 1310 200 1450 420" fill="none" stroke="#9d8cff" stroke-width="2" opacity=".65"/>
+<circle cx="1120" cy="420" r="255" fill="none" stroke="#6eeaff" stroke-opacity=".28" stroke-width="2"/>
+<path d="M0 700Q300 540 560 700T1100 670T1600 640V900H0Z" fill="#080b1a" opacity=".85"/>
+<path d="M0 790Q350 630 700 790T1400 760T1800 790" fill="none" stroke="#6d62c6" stroke-opacity=".3" stroke-width="3"/>
+<g fill="#fff" opacity=".8"><circle cx="340" cy="220" r="3"/><circle cx="590" cy="120" r="2"/><circle cx="720" cy="620" r="2"/><circle cx="1450" cy="160" r="3"/></g>
+</svg>

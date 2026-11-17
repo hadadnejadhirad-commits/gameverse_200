@@ -201,3 +201,57 @@
   .game-actions button { padding:7px 8px; font-size:8px; }
   .story-film > .film-sound { top:70px; right:12px; }
 }
+
+
+/* HIREX UNIVERSE identity and original opening sequence */
+.brand { gap:10px; }
+.brand>span { display:grid; place-items:center; width:34px; height:34px; border:1px solid rgba(151,125,255,.75); border-radius:11px; color:#fff; background:linear-gradient(145deg,#9a78ff,#33245f); box-shadow:0 0 24px rgba(130,88,237,.35); font-weight:950; }
+.brand>b { letter-spacing:1.5px; }
+.hero { isolation:isolate; }
+.hero:before { content:""; position:absolute; z-index:-1; inset:0; background:url("/images/hirex-universe-hero.svg") center/cover no-repeat; opacity:.2; pointer-events:none; mask-image:linear-gradient(90deg,transparent,#000 25%,#000 85%,transparent); }
+.hirex-intro { position:fixed; inset:0; z-index:5000; display:grid; place-items:center; overflow:hidden; background:#05040d; color:#fff; animation:hirex-intro-out .7s ease 4.5s forwards; }
+.hirex-intro>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.78; animation:hirex-zoom 5.2s ease-out both; }
+.hirex-intro:after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 48%,rgba(20,12,52,.08),rgba(2,3,10,.72) 75%),linear-gradient(0deg,rgba(2,3,9,.8),transparent 45%,rgba(2,3,9,.35)); }
+.hirex-intro-copy { position:relative; z-index:2; text-align:center; padding:24px; animation:hirex-copy-in 1s ease both; }
+.hirex-intro-copy>span { color:#bba9ff; font-size:10px; letter-spacing:6px; font-weight:900; }
+.hirex-intro-copy h1 { margin:18px 0 8px; font:clamp(42px,8vw,100px)/.95 Impact,"Arial Black",sans-serif; letter-spacing:3px; text-shadow:0 8px 40px #000; }
+.hirex-intro-copy h1 b { color:#a98cff; }
+.hirex-intro-copy p { margin:16px 0 28px; color:#d9d2f5; font-size:clamp(10px,1.5vw,15px); letter-spacing:4px; }
+.hirex-intro-copy button { border:1px solid rgba(205,190,255,.7); border-radius:999px; padding:13px 24px; color:#fff; background:linear-gradient(110deg,#7654db,#35245f); box-shadow:0 10px 35px rgba(103,73,210,.35); cursor:pointer; font-weight:900; }
+.hirex-intro-copy button i { margin-inline-start:12px; font-style:normal; }
+.hirex-skip { position:absolute; z-index:3; top:24px; right:24px; border:1px solid rgba(255,255,255,.25); border-radius:9px; padding:9px 13px; color:#eee; background:rgba(4,5,12,.5); cursor:pointer; font-size:10px; }
+.hirex-intro-line { position:absolute; z-index:3; bottom:0; left:0; height:3px; width:100%; background:linear-gradient(90deg,#a98cff,#62e8ff); transform-origin:left; animation:hirex-progress 5.2s linear both; }
+@keyframes hirex-zoom { from { transform:scale(1.04); } to { transform:scale(1.16); } }
+@keyframes hirex-copy-in { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+@keyframes hirex-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@keyframes hirex-intro-out { 0%,86% { opacity:1; visibility:visible; } 100% { opacity:0; visibility:hidden; pointer-events:none; } }
+@media (prefers-reduced-motion:reduce) { .hirex-intro,.hirex-intro>img,.hirex-intro-copy,.hirex-intro-line { animation:none!important; } }
+
+/* HIREX creator upload studio */
+.upload-section { padding:95px 0 110px; }
+.upload-notice { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 20px; padding:16px 18px; border:1px solid rgba(255,211,96,.32); border-radius:12px; background:rgba(255,211,96,.06); color:var(--muted); font-size:11px; line-height:1.85; }
+.upload-notice b { flex:0 0 auto; color:var(--gold); letter-spacing:1px; font-size:10px; }
+.upload-form { display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:18px; padding:clamp(18px,3vw,28px); border:1px solid var(--line); border-radius:18px; background:var(--panel); }
+.upload-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.upload-fields label { display:flex; flex-direction:column; gap:8px; color:var(--text); font-size:11px; font-weight:800; }
+.upload-fields input:not([type=file]),.upload-fields select,.upload-fields textarea { width:100%; min-width:0; padding:12px; border:1px solid var(--line); border-radius:9px; background:var(--bg); color:var(--text); outline:none; font:inherit; font-weight:400; }
+.upload-fields input:focus,.upload-fields select:focus,.upload-fields textarea:focus { border-color:var(--violet); box-shadow:0 0 0 3px color-mix(in srgb,var(--violet) 18%,transparent); }
+.upload-fields textarea { resize:vertical; line-height:1.8; }
+.upload-fields small { color:var(--muted); font-size:9px; font-weight:400; overflow-wrap:anywhere; }
+.upload-wide { grid-column:1/-1; }
+.upload-file { padding:14px; border:1px dashed var(--line); border-radius:10px; background:color-mix(in srgb,var(--bg) 75%,transparent); }
+.upload-file input { width:100%; color:var(--muted); font-size:10px; }
+.upload-preview { display:flex; flex-direction:column; gap:8px; align-self:start; color:var(--muted); font-size:10px; }
+.upload-preview img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:var(--bg); }
+.upload-actions { display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin-top:4px; }
+.upload-actions button { min-height:42px; padding:0 17px; border:0; border-radius:9px; background:linear-gradient(120deg,#8c65ee,#4b36a5); color:white; font-size:10px; font-weight:900; cursor:pointer; }
+.upload-actions .upload-reset { border:1px solid var(--line); background:transparent; color:var(--text); }
+.upload-status { grid-column:1/-1; margin:0; padding:10px 12px; border-radius:8px; background:color-mix(in srgb,var(--violet) 12%,transparent); color:var(--text); font-size:10px; line-height:1.9; }
+@media(max-width:760px) {
+ .upload-form { grid-template-columns:1fr; }
+ .upload-preview { max-width:260px; }
+}
+@media(max-width:520px) {
+ .upload-fields { grid-template-columns:1fr; }
+ .upload-wide { grid-column:auto; }
+}
