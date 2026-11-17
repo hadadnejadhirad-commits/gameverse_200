@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import { resolve } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 
 const pagesBase = "/gameverse_200/";
@@ -27,5 +28,9 @@ export default defineConfig({
   build: {
     outDir: "../pages-dist",
     emptyOutDir: true,
+    // Build both the homepage and the standalone login/profile page.
+    rollupOptions: {
+      input: [resolve("pages/index.html"), resolve("pages/login.html")],
+    },
   },
 });
