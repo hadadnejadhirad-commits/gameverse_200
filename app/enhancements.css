@@ -226,3 +226,32 @@
 @keyframes hirex-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
 @keyframes hirex-intro-out { 0%,86% { opacity:1; visibility:visible; } 100% { opacity:0; visibility:hidden; pointer-events:none; } }
 @media (prefers-reduced-motion:reduce) { .hirex-intro,.hirex-intro>img,.hirex-intro-copy,.hirex-intro-line { animation:none!important; } }
+
+/* HIREX creator upload studio */
+.upload-section { padding:95px 0 110px; }
+.upload-notice { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 20px; padding:16px 18px; border:1px solid rgba(255,211,96,.32); border-radius:12px; background:rgba(255,211,96,.06); color:var(--muted); font-size:11px; line-height:1.85; }
+.upload-notice b { flex:0 0 auto; color:var(--gold); letter-spacing:1px; font-size:10px; }
+.upload-form { display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:18px; padding:clamp(18px,3vw,28px); border:1px solid var(--line); border-radius:18px; background:var(--panel); }
+.upload-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.upload-fields label { display:flex; flex-direction:column; gap:8px; color:var(--text); font-size:11px; font-weight:800; }
+.upload-fields input:not([type=file]),.upload-fields select,.upload-fields textarea { width:100%; min-width:0; padding:12px; border:1px solid var(--line); border-radius:9px; background:var(--bg); color:var(--text); outline:none; font:inherit; font-weight:400; }
+.upload-fields input:focus,.upload-fields select:focus,.upload-fields textarea:focus { border-color:var(--violet); box-shadow:0 0 0 3px color-mix(in srgb,var(--violet) 18%,transparent); }
+.upload-fields textarea { resize:vertical; line-height:1.8; }
+.upload-fields small { color:var(--muted); font-size:9px; font-weight:400; overflow-wrap:anywhere; }
+.upload-wide { grid-column:1/-1; }
+.upload-file { padding:14px; border:1px dashed var(--line); border-radius:10px; background:color-mix(in srgb,var(--bg) 75%,transparent); }
+.upload-file input { width:100%; color:var(--muted); font-size:10px; }
+.upload-preview { display:flex; flex-direction:column; gap:8px; align-self:start; color:var(--muted); font-size:10px; }
+.upload-preview img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid var(--line); background:var(--bg); }
+.upload-actions { display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin-top:4px; }
+.upload-actions button { min-height:42px; padding:0 17px; border:0; border-radius:9px; background:linear-gradient(120deg,#8c65ee,#4b36a5); color:white; font-size:10px; font-weight:900; cursor:pointer; }
+.upload-actions .upload-reset { border:1px solid var(--line); background:transparent; color:var(--text); }
+.upload-status { grid-column:1/-1; margin:0; padding:10px 12px; border-radius:8px; background:color-mix(in srgb,var(--violet) 12%,transparent); color:var(--text); font-size:10px; line-height:1.9; }
+@media(max-width:760px) {
+ .upload-form { grid-template-columns:1fr; }
+ .upload-preview { max-width:260px; }
+}
+@media(max-width:520px) {
+ .upload-fields { grid-template-columns:1fr; }
+ .upload-wide { grid-column:auto; }
+}
