@@ -200,6 +200,25 @@ const steamAppIds:Record<string,string>={
  "Sea of Thieves":"1172620",
  "Garry's Mod":"4000",
  "VRChat":"438100",
+ "Mini Metro":"287980",
+ "Mini Motorways":"1127500",
+ "Dorfromantik":"1455840",
+ "ISLANDERS":"1046030",
+ "Townscaper":"1291340",
+ "Cloud Gardens":"1372320",
+ "Gourdlets":"2013730",
+ "SUMMERHOUSE":"2533960",
+ "Minami Lane":"2678990",
+ "A Short Hike":"1055540",
+ "Strange Horticulture":"1574580",
+ "Unpacking":"1135690",
+ "The Witness":"210970",
+ "Baba Is You":"736260",
+ "TOEM: A Photo Adventure":"1307580",
+ "Lake":"1118240",
+ "Alba: A Wildlife Adventure":"1337010",
+ "A Webbing Journey":"2073910",
+ "Islands & Trains":"1957760",
 };
 const groups=[
  ["اکشن","Elden Ring|Grand Theft Auto V|Red Dead Redemption 2|Cyberpunk 2077|God of War|God of War Ragnarök|Horizon Zero Dawn|Horizon Forbidden West|Ghost of Tsushima|Sekiro: Shadows Die Twice|Dark Souls III|Black Myth: Wukong|Devil May Cry 5|Metal Gear Solid V|Batman: Arkham Knight|Control|Death Stranding|Days Gone|Star Wars Jedi: Fallen Order|Star Wars Jedi: Survivor","#fa4e78","#6736d6"],
@@ -211,9 +230,11 @@ const groups=[
  ["ترس و معما","Resident Evil 2|Resident Evil 3|Resident Evil 4|Resident Evil 7|Resident Evil Village|Alan Wake|Dead Space|Alien: Isolation|Amnesia: The Dark Descent|Amnesia: The Bunker|Outlast|Outlast 2|SOMA|Phasmophobia|Lethal Company|Content Warning|The Forest|Sons of the Forest|Subnautica|Still Wakes the Deep","#d0445e","#321d3c"],
  ["مسابقه‌ای و ورزشی","Forza Horizon 5|Forza Horizon 4|Need for Speed Heat|Need for Speed Unbound|Assetto Corsa|Assetto Corsa Competizione|F1 24|Dirt Rally 2.0|BeamNG.drive|Wreckfest|Rocket League|EA Sports FC 25|NBA 2K25|WWE 2K24|PGA Tour|Session: Skate Sim|Descenders|eFootball|Riders Republic|Tony Hawk's Pro Skater 1 + 2","#ff9d43","#a42c72"],
  ["بقا و جهان‌باز","Palworld|Valheim|Rust|ARK: Survival Evolved|ARK: Survival Ascended|Don't Starve Together|Project Zomboid|7 Days to Die|Raft|Grounded|V Rising|Conan Exiles|Green Hell|The Long Dark|Core Keeper|Astroneer|Enshrouded|Once Human|DayZ|SCUM","#7cc75b","#375134"],
- ["ماجراجویی و گروهی","It Takes Two|A Way Out|Uncharted: Legacy of Thieves|Tomb Raider|Rise of the Tomb Raider|Shadow of the Tomb Raider|Life is Strange|Detroit: Become Human|Portal 2|Psychonauts 2|Among Us|Fall Guys|Overcooked! 2|Human: Fall Flat|Gang Beasts|Party Animals|PlateUp!|Sea of Thieves|Garry's Mod|VRChat","#6a8cff","#5832a5"]
+ ["ماجراجویی و گروهی","It Takes Two|A Way Out|Uncharted: Legacy of Thieves|Tomb Raider|Rise of the Tomb Raider|Shadow of the Tomb Raider|Life is Strange|Detroit: Become Human|Portal 2|Psychonauts 2|Among Us|Fall Guys|Overcooked! 2|Human: Fall Flat|Gang Beasts|Party Animals|PlateUp!|Sea of Thieves|Garry's Mod|VRChat","#6a8cff","#5832a5"],
+ ["آرامش‌بخش و معمایی","Mini Metro|Mini Motorways|Dorfromantik|ISLANDERS|Townscaper|Cloud Gardens|Gourdlets|SUMMERHOUSE|Minami Lane|A Short Hike|Strange Horticulture|Unpacking|The Witness|Baba Is You|TOEM: A Photo Adventure|Lake|Alba: A Wildlife Adventure|A Webbing Journey|Islands & Trains","#83d8d0","#3b6e91"]
 ] as const;
-const copy:Record<string,string>={"اکشن":"ریتم سریع، مبارزه‌های دقیق و دنیایی که مهارت بازیکن را به چالش می‌کشد.","نقش‌آفرینی":"داستانی گسترده با انتخاب‌های مهم، پیشرفت شخصیت و جهانی پر از راز.","تیراندازی":"تمرکز بر واکنش سریع، هدف‌گیری و تصمیم‌های لحظه‌ای در میدان‌های متنوع.","استراتژی":"برنامه‌ریزی، مدیریت منابع و تصمیم‌هایی که نتیجه هر مرحله را تغییر می‌دهند.","مستقل":"ایده‌ای خلاقانه با طراحی هنری و گیم‌پلی تازه و به‌یادماندنی.","شبیه‌سازی":"تجربه‌ای دقیق برای ساختن، مدیریت کردن و دنبال کردن مسیر دلخواه.","ترس و معما":"فضایی رازآلود با تمرکز بر اکتشاف، حل معما و مدیریت هوشمندانه منابع.","مسابقه‌ای و ورزشی":"رقابت پرانرژی، کنترل روان و فرصت همیشگی برای بهتر کردن رکورد.","بقا و جهان‌باز":"اکتشاف آزاد، جمع‌آوری منابع و ساختن مسیر بقا در محیطی پویا.","ماجراجویی و گروهی":"همکاری، کشف و لحظه‌های سرگرم‌کننده‌ای که با دوستان جذاب‌تر می‌شوند."};
+export const safeCoverGenres = new Set<string>(["شبیه‌سازی","مسابقه‌ای و ورزشی","آرامش‌بخش و معمایی"]);
+const copy:Record<string,string>={"اکشن":"ریتم سریع، مبارزه‌های دقیق و دنیایی که مهارت بازیکن را به چالش می‌کشد.","نقش‌آفرینی":"داستانی گسترده با انتخاب‌های مهم، پیشرفت شخصیت و جهانی پر از راز.","تیراندازی":"تمرکز بر واکنش سریع، هدف‌گیری و تصمیم‌های لحظه‌ای در میدان‌های متنوع.","استراتژی":"برنامه‌ریزی، مدیریت منابع و تصمیم‌هایی که نتیجه هر مرحله را تغییر می‌دهند.","مستقل":"ایده‌ای خلاقانه با طراحی هنری و گیم‌پلی تازه و به‌یادماندنی.","شبیه‌سازی":"تجربه‌ای دقیق برای ساختن، مدیریت کردن و دنبال کردن مسیر دلخواه.","ترس و معما":"فضایی رازآلود با تمرکز بر اکتشاف، حل معما و مدیریت هوشمندانه منابع.","مسابقه‌ای و ورزشی":"رقابت پرانرژی، کنترل روان و فرصت همیشگی برای بهتر کردن رکورد.","بقا و جهان‌باز":"اکتشاف آزاد، جمع‌آوری منابع و ساختن مسیر بقا در محیطی پویا.","ماجراجویی و گروهی":"همکاری، کشف و لحظه‌های سرگرم‌کننده‌ای که با دوستان جذاب‌تر می‌شوند.","آرامش‌بخش و معمایی":"بازی‌های آرام، معماهای هوشمندانه و تجربه‌های خلاقانه برای ساختن، کشف و فکر کردن."};
 const goals:Record<string,[string,string]>={
  "اکشن":["قهرمان باید از دل یک بحران بزرگ عبور کند و عامل آشوب را پیدا کند","هر مرحله بخشی از حقیقت پنهان جهان را آشکار می‌کند"],
  "نقش‌آفرینی":["یک سفر طولانی با انتخاب‌هایی آغاز می‌شود که سرنوشت شخصیت‌ها را عوض می‌کند","همراهان، رازها و تصمیم‌های اخلاقی مسیر قهرمان را می‌سازند"],
@@ -237,8 +258,9 @@ const goalsEn:Record<string,[string,string]>={
  "مسابقه‌ای و ورزشی":["A newcomer enters a major competition to earn a place among the best","Every event becomes another chapter in the climb to the top"],
  "بقا و جهان‌باز":["A lone survivor explores an unknown land and builds a safe shelter","Limited resources and a changing world force new decisions"],
  "ماجراجویی و گروهی":["A group of unlikely allies begins a shared journey through an unexpected crisis","Trust and teamwork are the keys to reaching their destination"],
+ "آرامش‌بخش و معمایی":["A calm journey begins among small towns, winding routes, and hidden mysteries","Arrange pieces, solve thoughtful puzzles, and build a beautiful world"],
 };
 const makeStory=(title:string,genre:string,index:number)=>{const goal=goals[genre];return `${title} با یک اتفاق غیرمنتظره آغاز می‌شود و بازیکن را مستقیم وارد ماجرا می‌کند. ${goal[0]}. ${goal[1]}. در پایان، نتیجهٔ سفر به انتخاب‌ها و مهارتی بستگی دارد که بازیکن در طول راه به دست آورده است.`};
 const makeStoryEn=(title:string,genre:string,index:number)=>{const goal=goalsEn[genre];return `${title} begins with an unexpected event that pulls the player into its world. ${goal[0]}. ${goal[1]}. In the end, the outcome depends on the choices and skills developed along the journey.`};
-export const catalogGames:CatalogGame[]=groups.flatMap((g,gi)=>g[1].split("|").map((title,i)=>({id:gi*20+i+1,title,genre:g[0],score:Number(Math.max(8,9.8-gi*.08-i*.035).toFixed(1)),mode:["تک‌نفره","چندنفره","تک‌نفره / چندنفره"][(gi+i)%3],difficulty:["آسان برای شروع","متعادل","چالش‌برانگیز"][(gi+i)%3],description:makeStory(title,g[0],i),storyEn:makeStoryEn(title,g[0],i),image:g[0]==="اکشن"||g[0]==="تیراندازی"?"/images/game-covers-action.png":g[0]==="مستقل"||g[0]==="ترس و معما"?"/images/game-covers-indie.png":"/images/game-covers-worlds.png",downloadUrl:`https://store.steampowered.com/app/${steamAppIds[title]}`,palette:[g[2],g[3]]} as CatalogGame)));
+export const catalogGames:CatalogGame[]=groups.flatMap((g,gi)=>g[1].split("|").map((title,i)=>({id:gi*20+i+1,title,genre:g[0],score:Number(Math.max(8,9.8-gi*.08-i*.035).toFixed(1)),mode:["تک‌نفره","چندنفره","تک‌نفره / چندنفره"][(gi+i)%3],difficulty:["آسان برای شروع","متعادل","چالش‌برانگیز"][(gi+i)%3],description:makeStory(title,g[0],i),storyEn:makeStoryEn(title,g[0],i),image:safeCoverGenres.has(g[0])&&steamAppIds[title]?"https://cdn.akamai.steamstatic.com/steam/apps/"+steamAppIds[title]+"/header.jpg":"",downloadUrl:`https://store.steampowered.com/app/${steamAppIds[title]}`,palette:[g[2],g[3]]} as CatalogGame)));
 export const catalogGenres=["همه",...groups.map(g=>g[0])];

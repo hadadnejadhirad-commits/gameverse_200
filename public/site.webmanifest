@@ -1,7 +1,7 @@
 {
   "name": "HIREX UNIVERSE",
-  "short_name": "HIREX UNIVERSE",
-  "description": "A bilingual gaming universe with curated games and original playable adventures.",
+  "short_name": "HIREX",
+  "description": "HIREX UNIVERSE — a bilingual game collection and original playable adventures.",
   "lang": "fa",
   "dir": "rtl",
   "start_url": "/gameverse_200/",
@@ -11,10 +11,21 @@
   "theme_color": "#070810",
   "icons": [
     {
+      "src": "/gameverse_200/icons/hirex-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
       "src": "/gameverse_200/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     }
+  ],
+  "id": "/gameverse_200/",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
   ]
 }
