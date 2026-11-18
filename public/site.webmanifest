@@ -11,6 +11,12 @@
   "theme_color": "#070810",
   "icons": [
     {
+      "src": "/gameverse_200/icons/hirex-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
       "src": "/gameverse_200/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
