@@ -1,4 +1,4 @@
-const CACHE_NAME = "hirex-universe-v1";
+const CACHE_NAME = "hirex-universe-v2";
 const BASE = "/gameverse_200/";
 const APP_SHELL = [BASE, BASE + "site.webmanifest", BASE + "favicon.svg", BASE + "hirex-mark.svg"];
 
