@@ -1,6 +1,6 @@
 const CACHE_NAME = "hirex-universe-v2";
 const BASE = "/gameverse_200/";
-const APP_SHELL = [BASE, BASE + "site.webmanifest", BASE + "favicon.svg", BASE + "hirex-mark.svg"];
+const APP_SHELL = [BASE, BASE + "site.webmanifest", BASE + "favicon.svg", BASE + "hirex-mark.svg", BASE + "icons/hirex-app-icon.svg"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
