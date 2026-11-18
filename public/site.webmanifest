@@ -1,7 +1,7 @@
 {
   "name": "HIREX UNIVERSE",
-  "short_name": "HIREX UNIVERSE",
-  "description": "A bilingual gaming universe with curated games and original playable adventures.",
+  "short_name": "HIREX",
+  "description": "HIREX UNIVERSE — a bilingual game collection and original playable adventures.",
   "lang": "fa",
   "dir": "rtl",
   "start_url": "/gameverse_200/",
@@ -16,5 +16,10 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
+  ],
+  "id": "/gameverse_200/",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
   ]
 }
