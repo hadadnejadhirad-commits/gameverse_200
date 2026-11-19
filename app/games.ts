@@ -246,6 +246,7 @@ const goals:Record<string,[string,string]>={
  "مسابقه‌ای و ورزشی":["یک تازه‌کار وارد رقابتی بزرگ می‌شود تا جایگاه خود را میان بهترین‌ها ثابت کند","هر مسابقه بخشی از مسیر پیشرفت و ساختن یک نام تازه است"],
  "بقا و جهان‌باز":["بازمانده‌ای تنها باید محیط ناشناخته را کشف کند و پناهگاهی امن بسازد","منابع محدود و تغییرات دنیا او را وادار به تصمیم‌های تازه می‌کنند"],
  "ماجراجویی و گروهی":["چند همراه برای حل بحرانی غیرمنتظره وارد سفری مشترک می‌شوند","همکاری و اعتماد، کلید عبور از موانع و رسیدن به مقصد است"],
+ "آرامش‌بخش و معمایی":["بازیکن در شهری آرام با مسیرها و گوشه‌های ناشناخته روبه‌رو می‌شود","با حل معماها و ساختن فضاهای تازه، داستان هر محیط را کشف می‌کند"],
 };
 const goalsEn:Record<string,[string,string]>={
  "اکشن":["A hero must cross a world in crisis and discover what caused the chaos","Each mission reveals another hidden piece of the world"],
@@ -260,7 +261,7 @@ const goalsEn:Record<string,[string,string]>={
  "ماجراجویی و گروهی":["A group of unlikely allies begins a shared journey through an unexpected crisis","Trust and teamwork are the keys to reaching their destination"],
  "آرامش‌بخش و معمایی":["A calm journey begins among small towns, winding routes, and hidden mysteries","Arrange pieces, solve thoughtful puzzles, and build a beautiful world"],
 };
-const makeStory=(title:string,genre:string,index:number)=>{const goal=goals[genre];return `${title} با یک اتفاق غیرمنتظره آغاز می‌شود و بازیکن را مستقیم وارد ماجرا می‌کند. ${goal[0]}. ${goal[1]}. در پایان، نتیجهٔ سفر به انتخاب‌ها و مهارتی بستگی دارد که بازیکن در طول راه به دست آورده است.`};
-const makeStoryEn=(title:string,genre:string,index:number)=>{const goal=goalsEn[genre];return `${title} begins with an unexpected event that pulls the player into its world. ${goal[0]}. ${goal[1]}. In the end, the outcome depends on the choices and skills developed along the journey.`};
+const makeStory=(title:string,genre:string,index:number)=>{const goal=goals[genre]??["ماجرایی تازه آغاز می‌شود","بازیکن با کشف مسیرها و حل چالش‌ها پیش می‌رود"];return `${title} با یک اتفاق غیرمنتظره آغاز می‌شود و بازیکن را مستقیم وارد ماجرا می‌کند. ${goal[0]}. ${goal[1]}. در پایان، نتیجهٔ سفر به انتخاب‌ها و مهارتی بستگی دارد که بازیکن در طول راه به دست آورده است.`};
+const makeStoryEn=(title:string,genre:string,index:number)=>{const goal=goalsEn[genre]??["A new journey begins in an unfamiliar place","The player discovers new paths and solves thoughtful challenges"];return `${title} begins with an unexpected event that pulls the player into its world. ${goal[0]}. ${goal[1]}. In the end, the outcome depends on the choices and skills developed along the journey.`};
 export const catalogGames:CatalogGame[]=groups.flatMap((g,gi)=>g[1].split("|").map((title,i)=>({id:gi*20+i+1,title,genre:g[0],score:Number(Math.max(8,9.8-gi*.08-i*.035).toFixed(1)),mode:["تک‌نفره","چندنفره","تک‌نفره / چندنفره"][(gi+i)%3],difficulty:["آسان برای شروع","متعادل","چالش‌برانگیز"][(gi+i)%3],description:makeStory(title,g[0],i),storyEn:makeStoryEn(title,g[0],i),image:safeCoverGenres.has(g[0])&&steamAppIds[title]?"https://cdn.akamai.steamstatic.com/steam/apps/"+steamAppIds[title]+"/header.jpg":"",downloadUrl:`https://store.steampowered.com/app/${steamAppIds[title]}`,palette:[g[2],g[3]]} as CatalogGame)));
 export const catalogGenres=["همه",...groups.map(g=>g[0])];
